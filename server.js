@@ -1,7 +1,7 @@
 
     const http = require( "http" );
 
-    var server=http.CreateServer( 
+    var server=http.createServer( 
     (server_req,server_res)=>{
     
         server_res.write("[hello_world]");
