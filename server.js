@@ -1,5 +1,6 @@
 
     const http = require( "http" );
+    const   fs = require(   "fs" );
 
     var server=http.createServer( 
     (server_req,server_res)=>{
@@ -12,8 +13,23 @@
             server_res.end();
         }else
         if( url_cap == "/STATIC/HELLO.TXT" ){
-            server_res.write("[TODO:hello.txt]");
-            server_res.end();
+
+            fs.readFile( "/STATIC/HELLO.TXT" , (err,dat)=>{
+
+                if( err ){
+                    server_res.write("[err]"+err.toString());
+                }else
+                if(!err ){
+                    server_res.write( dat );
+                }else{
+                    server_res.write(
+                        "[This_Line_Should_Never_Execute]"
+                    );;
+                };;
+            
+                server_res.end();
+            });;
+
         }else{
             server_res.write("[BAD_ROUTE]");
             server_res.end();
