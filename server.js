@@ -12,7 +12,7 @@
             server_res.write("[site_root]");
             server_res.end();
         }else
-        if( url_cap == "/STATIC/HELLO.TXT" ){
+        if( url_cap == "./STATIC/HELLO.TXT" ){
 
             fs.readFile( "/STATIC/HELLO.TXT" , (err,dat)=>{
 
